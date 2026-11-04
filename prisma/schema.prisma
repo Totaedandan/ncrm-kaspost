@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TrackingStatus {
+  REGISTERED
+  IN_TRANSIT
+  ARRIVED_AT_OFFICE
+  DELIVERED
+  RETURNING
+  RETURNED
+  UNKNOWN
+}
+
+enum CrmSyncStatus {
+  PENDING
+  SYNCED
+  FAILED
+}
+
+enum NotificationType {
+  STATUS_CHANGED
+  DELIVERED
+  STUCK
+  DAILY_REPORT
+  DEV_ALERT
+}
+
+enum OutboxStatus {
+  PENDING
+  SENT
+  FAILED
+}
+
+model Shipment {
+  id               String         @id @default(cuid())
+  crmOrderId       String         @unique
+  trackCode        String         @unique
+  customerName     String?
+  status           TrackingStatus @default(REGISTERED)
+  rawStatus        String?
+  lastLocation     String?
+  statusChangedAt  DateTime?
+  lastEventAt      DateTime?
+  lastCheckedAt    DateTime?
+  pollErrorCount   Int            @default(0)
+  deliveredAt      DateTime?
+  crmSyncStatus    CrmSyncStatus  @default(SYNCED)
+  crmSyncAttempts  Int            @default(0)
+  stuckAlertSentAt DateTime?
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  events           TrackingEvent[]
+
+  @@index([crmSyncStatus])
+  @@map("shipments")
+}
+
+model TrackingEvent {
+  id         String         @id @default(cuid())
+  shipmentId String
+  status     TrackingStatus
+  rawStatus  String
+  location   String?
+  occurredAt DateTime
+  dedupHash  String         @unique
+  rawPayload Json
+  shipment   Shipment       @relation(fields: [shipmentId], references: [id], onDelete: Cascade)
+
+  @@index([shipmentId, occurredAt])
+  @@map("tracking_events")
+}
+
+model NotificationOutbox {
+  id        String           @id @default(cuid())
+  type      NotificationType
+  dedupKey  String           @unique
+  payload   Json
+  status    OutboxStatus     @default(PENDING)
+  attempts  Int              @default(0)
+  lastError String?
+  nextAttemptAt DateTime     @default(now())
+  sentAt    DateTime?
+  createdAt DateTime         @default(now())
+
+  @@index([status, createdAt])
+  @@map("notification_outbox")
+}
+
+model SyncState {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+
+  @@map("sync_state")
+}

@@ -1,0 +1,77 @@
+{
+  "_synthetic": "built in the real response format from documented status codes",
+  "trackid": "RR100000002KZ",
+  "timestamp": "12:00:00 02.11.2026",
+  "events": [
+    {
+      "date": "31.10.2026",
+      "activity": [
+        {
+          "time": "07:15:00",
+          "zip": "010000",
+          "city": "Алматы",
+          "cityKz": "Алматы",
+          "name": "Астана СЦ",
+          "x_dep_id": "000000",
+          "status": [
+            "PRC"
+          ],
+          "dep_code": "010000",
+          "nondlv_reason": null,
+          "return_reason": null,
+          "forward_reason": null
+        }
+      ]
+    },
+    {
+      "date": "29.10.2026",
+      "activity": [
+        {
+          "time": "18:40:00",
+          "zip": "050000",
+          "city": "Алматы",
+          "cityKz": "Алматы",
+          "name": "Алматы СЦ",
+          "x_dep_id": "000000",
+          "status": [
+            "SND"
+          ],
+          "dep_code": "050000",
+          "nondlv_reason": null,
+          "return_reason": null,
+          "forward_reason": null
+        },
+        {
+          "time": "18:10:00",
+          "zip": "050000",
+          "city": "Алматы",
+          "cityKz": "Алматы",
+          "name": "СОПС Алматы 050000",
+          "x_dep_id": "000000",
+          "status": [
+            "TRN"
+          ],
+          "dep_code": "050000",
+          "nondlv_reason": null,
+          "return_reason": null,
+          "forward_reason": null
+        },
+        {
+          "time": "17:00:00",
+          "zip": "050000",
+          "city": "Алматы",
+          "cityKz": "Алматы",
+          "name": "СОПС Алматы 050000",
+          "x_dep_id": "000000",
+          "status": [
+            "RCPOPS"
+          ],
+          "dep_code": "050000",
+          "nondlv_reason": null,
+          "return_reason": null,
+          "forward_reason": null
+        }
+      ]
+    }
+  ]
+}

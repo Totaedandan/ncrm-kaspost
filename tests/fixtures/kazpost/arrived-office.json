@@ -1,0 +1,47 @@
+{
+  "_synthetic": "built in the real response format from documented status codes",
+  "trackid": "RR100000003KZ",
+  "timestamp": "12:00:00 02.11.2026",
+  "events": [
+    {
+      "date": "01.11.2026",
+      "activity": [
+        {
+          "time": "09:30:00",
+          "zip": "010000",
+          "city": "Алматы",
+          "cityKz": "Алматы",
+          "name": "Астана 010000",
+          "x_dep_id": "000000",
+          "status": [
+            "STR"
+          ],
+          "dep_code": "010000",
+          "nondlv_reason": null,
+          "return_reason": null,
+          "forward_reason": null
+        }
+      ]
+    },
+    {
+      "date": "25.10.2026",
+      "activity": [
+        {
+          "time": "10:05:00",
+          "zip": "050000",
+          "city": "Алматы",
+          "cityKz": "Алматы",
+          "name": "СОПС Алматы 050000",
+          "x_dep_id": "000000",
+          "status": [
+            "RCPOPS"
+          ],
+          "dep_code": "050000",
+          "nondlv_reason": null,
+          "return_reason": null,
+          "forward_reason": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_synthetic": "built in the real response format from documented status codes",
+  "trackid": "RR100000001KZ",
+  "timestamp": "12:00:00 02.11.2026",
+  "events": [
+    {
+      "date": "29.10.2026",
+      "activity": [
+        {
+          "time": "11:20:00",
+          "zip": "050000",
+          "city": "Алматы",
+          "cityKz": "Алматы",
+          "name": "СОПС Алматы 050000",
+          "x_dep_id": "000000",
+          "status": [
+            "RCPOPS"
+          ],
+          "dep_code": "050000",
+          "nondlv_reason": null,
+          "return_reason": null,
+          "forward_reason": null
+        }
+      ]
+    }
+  ]
+}
